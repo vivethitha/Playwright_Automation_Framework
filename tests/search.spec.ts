@@ -1,14 +1,19 @@
 import { expect, test } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
+import { SearchPage } from '../pages/SearchPage';
+import { readExcelData } from '../utils/excelReader';
 
-const productsToSearch = ['iphone', 'laptop', 'wireless mouse'];
+const searchRows = readExcelData('amazon-search-data.xlsx');
 
-for (const [index, productName] of productsToSearch.entries()) {
-  test(`search for ${productName} - case ${index + 1}`, async ({ page }) => {
+for (const [index, row] of searchRows.entries()) {
+  const searchTerm = String(row.searchTerm).trim();
+
+  test(`search for ${searchTerm} - case ${index + 1}`, async ({ page }) => {
     const homePage = new HomePage(page);
+    const searchPage = new SearchPage(page);
 
     await homePage.open();
-    await homePage.searchProduct(productName);
+    await searchPage.searchFor(searchTerm);
 
     await expect(page).toHaveURL(/amazon\.com\/s\//i);
   });
