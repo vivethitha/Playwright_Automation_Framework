@@ -24,9 +24,6 @@ for (const [index, row] of searchRows.entries()) {
     await homePage.open();
     await searchPage.searchFor(searchTerm);
 
-   await homePage.open();
-    await homePage.searchProduct(productName);
-
     await expect(page).toHaveURL(/amazon\.com\/s\//i);
   });
 }
