@@ -10,6 +10,9 @@ for (const [index, productName] of productsToSearch.entries()) {
     await homePage.open();
     await homePage.searchProduct(productName);
 
+   await homePage.open();
+    await homePage.searchProduct(productName);
+
     await expect(page).toHaveURL(/amazon\.com\/s\//i);
   });
 }
