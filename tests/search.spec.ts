@@ -19,6 +19,7 @@ for (const [index, row] of searchRows.entries()) {
   });
    test(`search for ${searchTerm} - case ${index + 1} newly added`, async ({ page }) => {
     const homePage = new HomePage(page);
+    await homePage.searchProduct(productName);
     const searchPage = new SearchPage(page);
 
     await homePage.open();
