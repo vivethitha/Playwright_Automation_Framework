@@ -17,7 +17,16 @@ for (const [index, row] of searchRows.entries()) {
 
     await expect(page).toHaveURL(/amazon\.com\/s\//i);
   });
-   test(`search for ${searchTerm} - case ${index + 1}`, async ({ page }) => {
+   test(`search for ${searchTerm} - case ${index + 1} newly added`, async ({ page }) => {
+    const homePage = new HomePage(page);
+    const searchPage = new SearchPage(page);
+
+    await homePage.open();
+    await searchPage.searchFor(searchTerm);
+
+    await expect(page).toHaveURL(/amazon\.com\/s\//i);
+  });
+  test(`search for ${searchTerm} - case ${index + 1} second added`, async ({ page }) => {
     const homePage = new HomePage(page);
     const searchPage = new SearchPage(page);
 
