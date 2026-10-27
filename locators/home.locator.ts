@@ -1,3 +1,3 @@
 export const homeLocators = {
-    amazonlogo:'#nav'
+    amazonlogo:'#nav-logo-sprites'
 }
