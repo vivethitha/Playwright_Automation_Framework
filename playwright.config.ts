@@ -23,6 +23,8 @@ export default defineConfig({
   use: {
     baseURL: process.env.APP_URL || 'https://www.amazon.com',
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
   },
 
   /* Configure the supported browser for this local environment */

@@ -1,5 +1,7 @@
 import type { Page } from '@playwright/test';
+import { expect } from '@playwright/test';
 import { amazonLocators } from '../locators/amazon.locators';
+import { homeLocators } from '../locators/home.locator';
 import { BasePage } from './BasePage';
 
 export class HomePage extends BasePage {
@@ -14,10 +16,11 @@ export class HomePage extends BasePage {
   }
 
   async goToSignIn() {
-    const signInUrl = 'https://www.amazon.com/ap/signin';
-    await this.page.goto(signInUrl);
-    await this.page.waitForLoadState('domcontentloaded');
-    await this.page.waitForSelector(amazonLocators.emailInput, { timeout: 20000 });
+    await expect(this.page.locator(homeLocators.amazonlogo)).toBeVisible();
+    //const signInUrl = 'https://www.amazon.com/ap/signin';
+    //await this.page.goto(signInUrl);
+    //await this.page.waitForLoadState('domcontentloaded');
+    //await this.page.waitForSelector(amazonLocators.emailInput, { timeout: 20000 });
   }
 
   async searchProduct(productName: string) {
