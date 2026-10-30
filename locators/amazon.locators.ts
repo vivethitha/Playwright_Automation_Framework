@@ -7,5 +7,14 @@ export const amazonLocators = {
   signInSubmit: '#signInSubmit',
   navUserName: '#nav-link-accountList-nav-line-1',
   searchBox: '#twotabsearchtextbox',
-  searchSubmit: 'input[name="nav-search-submit-button"]',
-};
+  searchSubmit: '#nav-search-submit-button',
+  cartLink: '#nav-cart',
+  cartCount: '#nav-cart-count',
+  productTitle: '#productTitle',
+  productRating: '#acrPopover',
+  productReviewCount: '#acrCustomerReviewText',
+  productAvailability: '#availability',
+  productSellerInfo: '#merchant-info',
+git config --global user.email "sowmisam0@gmail.com"
+git config --global user.name "Your Name"git config --global user.email "sowmisam0@gmail.com"
+git config --global user.name "Your Name"};
